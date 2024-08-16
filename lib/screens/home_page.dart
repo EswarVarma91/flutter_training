@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/screens/side_menu.dart';
+import 'package:untitled1/on/call_screen.dart';
+import 'package:untitled1/on/chat_screen.dart';
+import 'package:untitled1/on/update_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -9,10 +11,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int curIndex = 0;
+
+  final List<Widget> _screens = [
+    CallScreen(),
+    ChatScreen(),
+    UpdateScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: curIndex,
+        onTap: (index){
+          setState(() {
+            curIndex = index;
+          });
+        },
         items: [
           BottomNavigationBarItem(
             label: "Calls",
@@ -74,15 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
           "My Home Page",
         ),
       ),
-      body: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(width: 150, child: SideMenu()),
-          Text("adwfgegr"),
-          Text("fscfergceg"),
-          SizedBox(width: 130, child: SideMenu()),
-        ],
-      ),
+      body: _screens[curIndex]
     );
   }
 }
