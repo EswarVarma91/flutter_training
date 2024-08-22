@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/screens/second_screen.dart';
 import 'package:untitled1/utils/validator.dart';
 
 class CallScreen extends StatefulWidget {
@@ -12,6 +13,7 @@ class _CallScreenState extends State<CallScreen> {
 
   TextEditingController _controllerName = TextEditingController();
   TextEditingController _controllerEmail = TextEditingController();
+  TextEditingController _controllerNumber = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -74,8 +76,34 @@ class _CallScreenState extends State<CallScreen> {
                     ),
                   ),
                   SizedBox(height: 30,),
+                  TextFormField(
+                    autocorrect: true,
+                    controller: _controllerNumber,
+                    validator: (value) {
+                      if(value!.length < 1){
+                        return "Please Enter Number";
+                      }
+                    },
+                    maxLength: 10,
+                    decoration: InputDecoration(
+                        labelText: "Number",
+                        hintText: "Mobile Number",
+
+                        suffixIcon: Icon(Icons.email),
+                        prefixIcon: Icon(Icons.email),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        )
+                    ),
+                  ),
+                  SizedBox(height: 30,),
                   ElevatedButton(onPressed: (){
-                    _formKey.currentState!.validate();
+                    if(_formKey.currentState!.validate()){
+                      String personName = _controllerName.text.toString();
+                      String personEmail = _controllerEmail.text.toString();
+                      String personNumber = _controllerNumber.text.toString();
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => SecondScreen(pName: personName,pEmail: personEmail, pNumber: personNumber,),),);
+                    }
                   }, child: Text("Submit"))
                 ],)
               )
