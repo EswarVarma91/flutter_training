@@ -15,7 +15,7 @@ class _SecondScreenState extends State<SecondScreen> {
   @override
   Widget build(BuildContext context) {
     return widget.pageNavigation! ? Scaffold(
-      appBar: AppBar(title: Text("Second Screen"),),
+      appBar: AppBar(title: const Text("Second Screen"),),
       body: buildPersonDetails(),
     ): buildPersonDetails() ;
   }
@@ -27,9 +27,9 @@ class _SecondScreenState extends State<SecondScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(widget.pName.toString(),style: TextStyle(fontSize: 20),),
-            Text(widget.pEmail.toString(),style: TextStyle(fontSize: 14),),
-            Text(widget.pNumber.toString(),style: TextStyle(fontSize: 14),)
+            Text(widget.pName.toString(),style: const TextStyle(fontSize: 20),),
+            Text(widget.pEmail.toString(),style: const TextStyle(fontSize: 14),),
+            Text(widget.pNumber.toString(),style: const TextStyle(fontSize: 14),)
           ],
       ),
     );

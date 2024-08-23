@@ -14,9 +14,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int curIndex = 0;
 
   final List<Widget> _screens = [
-    CallScreen(),
+    const CallScreen(),
     ChatScreen(),
-    UpdateScreen(),
+    const UpdateScreen(),
   ];
 
   @override
@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
             curIndex = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             label: "Calls",
             icon: Icon(
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // ),
         // elevation: 5,
         // centerTitle: true,
-        actions: [
+        actions: const [
           // IconButton(onPressed: () {}, icon: Icon(Icons.add)),
           // OutlinedButton(onPressed: () {}, child: Text("a")),
           // ElevatedButton(

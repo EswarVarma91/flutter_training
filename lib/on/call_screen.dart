@@ -47,14 +47,14 @@ class _CallScreenState extends State<CallScreen> {
                     decoration: InputDecoration(
                         labelText: "Name",
                         hintText: "Person Name",
-                        suffixIcon: Icon(Icons.person),
-                        prefixIcon: Icon(Icons.person),
+                        suffixIcon: const Icon(Icons.person),
+                        prefixIcon: const Icon(Icons.person),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
                         )
                     ),
                   ),
-                  SizedBox(height: 25,),
+                  const SizedBox(height: 25,),
                   TextFormField(
                     autocorrect: true,
                     controller: _controllerEmail,
@@ -68,14 +68,14 @@ class _CallScreenState extends State<CallScreen> {
                     decoration: InputDecoration(
                         labelText: "Email",
                         hintText: "Email Name",
-                        suffixIcon: Icon(Icons.email),
-                        prefixIcon: Icon(Icons.email),
+                        suffixIcon: const Icon(Icons.email),
+                        prefixIcon: const Icon(Icons.email),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
                         )
                     ),
                   ),
-                  SizedBox(height: 30,),
+                  const SizedBox(height: 30,),
                   TextFormField(
                     autocorrect: true,
                     controller: _controllerNumber,
@@ -89,14 +89,14 @@ class _CallScreenState extends State<CallScreen> {
                         labelText: "Number",
                         hintText: "Mobile Number",
 
-                        suffixIcon: Icon(Icons.email),
-                        prefixIcon: Icon(Icons.email),
+                        suffixIcon: const Icon(Icons.email),
+                        prefixIcon: const Icon(Icons.email),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
                         )
                     ),
                   ),
-                  SizedBox(height: 30,),
+                  const SizedBox(height: 30,),
                   ElevatedButton(onPressed: (){
                     if(_formKey.currentState!.validate()){
                       String personName = _controllerName.text.toString();
@@ -104,7 +104,7 @@ class _CallScreenState extends State<CallScreen> {
                       String personNumber = _controllerNumber.text.toString();
                       Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => SecondScreen(pName: personName,pEmail: personEmail, pNumber: personNumber,),),);
                     }
-                  }, child: Text("Submit"))
+                  }, child: const Text("Submit"))
                 ],)
               )
             ],),
