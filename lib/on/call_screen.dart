@@ -39,9 +39,10 @@ class _CallScreenState extends State<CallScreen> {
                 child: Column(children: [
                   TextFormField(
                     validator: (value) {
-                      if(value!.length < 1){
+                      if(value!.isEmpty){
                         return "Please Enter Person Name";
                       }
+                      return null;
                     },
                     controller: _controllerName,
                     decoration: InputDecoration(
@@ -59,11 +60,12 @@ class _CallScreenState extends State<CallScreen> {
                     autocorrect: true,
                     controller: _controllerEmail,
                     validator: (value) {
-                      if(value!.length < 1){
+                      if(value!.isEmpty){
                         return "Please Enter Email";
                       }else if(!value.isValidEmail()){
                         return 'Please Enter Correct Email';
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                         labelText: "Email",
@@ -80,9 +82,10 @@ class _CallScreenState extends State<CallScreen> {
                     autocorrect: true,
                     controller: _controllerNumber,
                     validator: (value) {
-                      if(value!.length < 1){
+                      if(value!.isEmpty){
                         return "Please Enter Number";
                       }
+                      return null;
                     },
                     maxLength: 10,
                     decoration: InputDecoration(
